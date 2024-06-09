@@ -1,0 +1,48 @@
+{
+  "name": "Web Annotator",
+  "author": {
+    "email": "leelajogeendarsaireddi@gmail.com"
+  },
+  "version": "0.0.1",
+  "description": "Take notes directly in the page.",
+  "manifest_version": 3,
+  "default_locale": "en",
+  "permissions": ["storage", "tabs"],
+  "web_accessible_resources": [
+    {
+      "resources": ["inject.js"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "WebNote",
+    "default_icon": {
+      "128": "128.png",
+      "16": "16.png",
+      "19": "19.png",
+      "32": "32.png",
+      "38": "38.png",
+      "48": "48.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["utils.js", "content-script.js"],
+      "css": ["custom.css"],
+      "run_at": "document_start"
+    }
+  ],
+  "icons": {
+    "128": "128.png",
+    "16": "16.png",
+    "19": "19.png",
+    "32": "32.png",
+    "38": "38.png",
+    "48": "48.png"
+  }
+}
